@@ -1,0 +1,74 @@
+item {
+  id: 1
+  name: 'text'
+}
+
+item {
+  id: 2
+  name: 'checkbox'
+}
+
+item {
+  id: 3
+  name: 'checkbox_c'
+}
+
+item {
+  id: 4
+  name: 'input_text'
+}
+
+item {
+  id: 5
+  name: 'textarea'
+}
+
+item {
+  id: 6
+  name: 'input_psw'
+}
+
+item {
+  id: 7
+  name: 'input_radio'
+}
+
+item {
+  id: 8
+  name: 'input_radio_c'
+}
+
+item {
+  id: 9
+  name: 'link'
+}
+
+item {
+  id: 10
+  name: 'select'
+}
+
+item {
+  id: 11
+  name: 'textblock'
+}
+
+item {
+  id: 12
+  name: 'tab'
+}
+
+item {
+  id: 13
+  name: 'tab_list'
+}
+
+item {
+  id: 14
+  name: 'datepicker'
+}
+
+item {
+  id: 15
+  name: 'button'
+}

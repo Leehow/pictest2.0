@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+<title>HTML picture looking</title>
+<script type=text/javascript src="{{url_for('static', filename='js/jquery-3.3.1.min.js', _external=True) }}"></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>
+$(document).ready(function(){
+	$("#wart_msg").hide();
+	$("#up_msg").show();
+
+	$("#b_pic").click(function(){
+	  $("#up_msg").hide();
+	  $("#wart_msg").show();
+	  window.location.href="/anay?pic={{pic}}&option=bild"
+	});
+	$("#b_xml").click(function(){
+	  $("#up_msg").hide();
+	  $("#wart_msg").show();
+	  window.location.href="/anay?pic={{pic}}&option=json"
+	});
+});
+</script>
+</head>
+<h1 id="wart_msg" display="none" >The system is analyzing, please be patient(About 30s)</h1>
+<div id="up_msg">
+<h1>Uploaded successfully!</h1>
+<h2>Which format do you want to output?</h2>
+<button id="b_pic">Picture</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button id="b_xml">XML</button>
+<p></p>
+<img src="/static/{{pic}}" />
+
+<br /><p></p>
+<a href="/" onClick=”javascript :history.go(-1);”>back</a>
+</div>

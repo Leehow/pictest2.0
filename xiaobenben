@@ -1,0 +1,63 @@
+pip install -r requirements.txt
+
+FLASK_APP
+FLASK_ENV=development
+
+
+docker提交
+docker commit c3f279d17e0a  svendowideit/testimage:version3
+
+docker里运行主机的文件
+docker run --runtime=nvidia -it --rm -v $PWD:/tmp -w /tmp tf/tf_od_ocr:latest \
+python ./te.py
+
+docker run --runtime=nvidia -it --env PYTHONPATH=/opt/models/research:/opt/models/research/slim \
+--rm -v $PWD:/tmp -w /tmp tf/tf_od_ocr:latest \
+python ./te.py
+
+
+docker run --runtime=nvidia -it -p 8888:5000 -e PYTHONPATH=/opt/models/research:/opt/models/research/slim \
+-e FLASK_APP=appl.py \
+-e FLASK_ENV=development \
+--rm -v $PWD:/tmp -w /tmp tf/tf_od_ocr:latest \
+flask run --host=0.0.0.0
+
+映射端口 -p 宿主机8888->flask5000
+直接
+docker run --runtime=nvidia -it --rm -p 8888:5000 -v $PWD:/tmp -w /tmp tf/tf_od_ocr:latest \
+python ./flask_test.py
+
+
+pip install Cython
+pip install contextlib2
+pip install pillow
+pip install lxml
+pip install jupyter
+pip install matplotlib
+
+export FLASK_APP=appl.py
+export PYTHONPATH=$PYTHONPATH:/home/leehow/PycharmProjects/models/research:/home/leehow/PycharmProjects/models/research/slim
+
+
+docker run --runtime=nvidia -it --env PYTHONPATH=/opt/models/research:/opt/models/research/slim \
+--rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow:with-od python model_main.py
+
+------------------------------------------------------------------------------------------------------------------
+
+//----------------------包好的cpu
+docker run -it -p 8888:5000 -e PYTHONPATH=/opt/models/research:/opt/models/research/slim \
+-e FLASK_APP=/root/pictest/appl.py \
+-e FLASK_ENV=development \
+--rm -v $PWD:/tmp -w /tmp tf/tf-od-cpu \
+flask run --host=0.0.0.0
+
+//----------------------包好的gpu
+docker run --runtime=nvidia \
+-it -p 8888:5000 -e PYTHONPATH=/opt/models/research:/opt/models/research/slim \
+-e FLASK_APP=/root/pictest/appl.py \
+-e FLASK_ENV=development \
+--rm -v $PWD:/tmp -w /tmp tf/tf_od_ocr \
+flask run --host=0.0.0.0
+
+d5737f9c48e4513bf4c27adf6d0777712a6d8ac6
+

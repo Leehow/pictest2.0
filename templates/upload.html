@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+<title>HTML picture looking</title>
+<script type=text/javascript src="{{url_for('static', filename='js/jquery-3.3.1.min.js', _external=True) }}"></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>
+$(document).ready(function(){
+	$("#wart_msg").hide();
+	$("#sb").hide();
+	$("#up_msg").show();
+
+	$("#up").click(function(){
+	  $("#up_msg").hide();
+	  $("#wart_msg").show();
+	  $("#sb").click();
+	});
+});
+</script>
+</head>
+<label for="avatar">upload the picture:</label>
+
+<br />
+<h1 id="wart_msg" display="none" >Picture is uploading...</h1>
+<!--<h1 id="wart_msg" display="none" >Lange Wartezeit.Bitte haben sie etwas geduld.(Ungefähr 30s)</h1>-->
+<form id="up_msg" action='/upload' method="POST" enctype="multipart/form-data">
+	<input type="text" name="name">
+	<p></p>
+	<input type="file" name="picture" accept="image/png, image/jpeg">
+	<p></p>
+<!--
+	<select name ="option">
+	  <option value="xml">bei xml</option>
+	  <option value="bild">bei Bild</option>
+	</select>
+-->
+     <input id="sb" type="submit" value="Upload">
+	
+</form>
+<p></p>
+<button id="up">Upload</button>
+<br /><p></p>
+<a href="/" onClick="javascript :history.go(-1);">back</a>
